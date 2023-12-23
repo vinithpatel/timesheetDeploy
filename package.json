@@ -1,5 +1,5 @@
 {
-  "homepage": "https://vinithpatel.github.io/timesheetDeploy",
+  "homepage": "https://vinithpatel.github.io/timesheetDeploy/",
   "name": "timesheetapp",
   "version": "0.1.0",
   "private": true,
@@ -7,8 +7,7 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "vue-cli-service build && gh-pages -d dist"
   },
   "dependencies": {
     "@mdi/font": "5.9.55",
@@ -16,7 +15,6 @@
     "date-fns": "^2.30.0",
     "daypilot-pro-vue": "https://npm.daypilot.org/daypilot-pro-vue/trial/2023.3.5716.tar.gz",
     "emailjs-com": "^3.2.0",
-    "gh-pages": "^6.1.0",
     "jspdf": "^2.5.1",
     "jspdf-autotable": "^3.6.0",
     "roboto-fontface": "*",
@@ -39,6 +37,7 @@
     "@vue/cli-service": "~5.0.0",
     "eslint": "^7.32.0",
     "eslint-plugin-vue": "^8.0.3",
+    "gh-pages": "^6.1.0",
     "vue-cli-plugin-vuetify": "~2.5.8",
     "webpack-plugin-vuetify": "^2.0.0-alpha.0"
   },
