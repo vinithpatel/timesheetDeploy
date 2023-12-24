@@ -197,7 +197,7 @@
             'Content-Type':'application/json'
           }
 
-          const response = await fetch(`http://localhost:8001/timesheet/export/${this.timeSheet.timeSheetId}`, options) ;
+          const response = await fetch(`${this.$store.state.backendDomainUrl}/timesheet/export/${this.timeSheet.timeSheetId}`, options) ;
 
           if(response.ok){
             const data = await response.json() ;

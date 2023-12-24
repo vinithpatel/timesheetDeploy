@@ -117,7 +117,7 @@ export default {
     async getEmployees(){
       this.loading = true ;
 
-      const url = `http://localhost:8001/employees?employeeId=${this.employeeId}&&employeeName=${this.employeeName}`
+      const url = `${this.$store.state.backendDomainUrl}/employees?employeeId=${this.employeeId}&&employeeName=${this.employeeName}`
       const options = {
         method:"GET",
         ...this.getHeaders,
@@ -135,7 +135,7 @@ export default {
 
     async deleteEmployee(employeeId){
       
-      const url = `http://localhost:8001/employee/delete/${employeeId}`
+      const url = `${this.$store.state.backendDomainUrl}/employee/delete/${employeeId}`
 
       const options = {
         method:"DELETE",

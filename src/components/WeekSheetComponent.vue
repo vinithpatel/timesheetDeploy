@@ -85,7 +85,7 @@ export default {
         async getTimeSheet(){
         this.loading = true ;
 
-        const url = `http://localhost:8001/timesheet/${this.$route.params.timeSheetId}` ;
+        const url = `${this.$store.state.backendDomainUrl}/timesheet/${this.$route.params.timeSheetId}` ;
 
         const options = {
             method:"GET",

@@ -5,7 +5,6 @@ module.exports = defineConfig({
     ? '/timesheetDeploy/'  // Change this to your repository name
     : '/',
 
-
   transpileDependencies: true,
 
   pluginOptions: {

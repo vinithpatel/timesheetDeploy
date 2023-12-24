@@ -1,4 +1,4 @@
-import {createRouter, createWebHistory} from "vue-router" ;
+import {createRouter, createWebHashHistory, /* createWebHistory */} from "vue-router" ;
 
 import store from "./store/index.js"
 
@@ -20,7 +20,10 @@ import ResetPassword from "./components/ResetPassword.vue"
 
 
 const router = createRouter({
-    history:createWebHistory(),
+    //history:createWebHistory(process.env.BASE_URL),
+    history:createWebHashHistory(process.env.BASE_URL),
+
+    // base: "/timesheetDeploy/", // Add this line to set the base URL
     routes:[
         {
             name:'Login',

@@ -241,7 +241,7 @@ import {mapState, mapGetters} from "vuex" ;
 
         methods:{
             async getReportingManagerEmployees(){
-                const url = `http://localhost:8001/reporting_manager/employees/${this.employeeId}`
+                const url = `${this.$store.state.backendDomainUrl}/reporting_manager/employees/${this.employeeId}`
                 const options = {
                     method:"GET",
                     ...this.getHeaders,
@@ -257,7 +257,7 @@ import {mapState, mapGetters} from "vuex" ;
             async onClickChangePassword(isActive){
                 this.changePasswordLoading = true ;
 
-                const url = "http://localhost:8001/password/reset" ;
+                const url = `${this.$store.state.backendDomainUrl}/password/reset` ;
 
                 const options = {
                     method:"PUT",

@@ -246,7 +246,7 @@
           
           const {startDate, endDate} = this.getStartAndEndDate()
 
-          const url=`http://localhost:8001/timesheets?employee_id=${this.employeeId}&&start_date=${startDate}&&end_date=${endDate}&&status=${this.status}` ;
+          const url=`${this.$store.state.backendDomainUrl}/timesheets?employee_id=${this.employeeId}&&start_date=${startDate}&&end_date=${endDate}&&status=${this.status}` ;
 
           const options = {
             method:"GET",

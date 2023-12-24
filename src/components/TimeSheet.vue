@@ -97,7 +97,7 @@
 
         async getTimeSheet(){
           
-            const url = `http://localhost:8001/timesheet/employee/${this.employeeId}?start_date=${this.startDate}&&end_date=${this.endDate}`
+            const url = `${this.$store.state.backendDomainUrl}/timesheet/employee/${this.employeeId}?start_date=${this.startDate}&&end_date=${this.endDate}`
           
             const options = {
               method:"GET",
@@ -118,7 +118,7 @@
 
           this.createSheetLoading = true ;
 
-          const url = "http://localhost:8001/timesheet/create"
+          const url = `${this.$store.state.backendDomainUrl}/timesheet/create`
           const body = {
             employeeId:this.employeeId,
             week:this.calendarValue,
@@ -152,7 +152,7 @@
 
         async onClickReCreate(){
           this.createSheetLoading = true ;
-          const url = `http://localhost:8001/timesheet/recreate/${this.timeSheetObj.timeSheetId}`
+          const url = `${this.$store.state.backendDomainUrl}/timesheet/recreate/${this.timeSheetObj.timeSheetId}`
 
           const response = await fetch(url, {method:"POST", ...this.getHeaders,}) ;
           

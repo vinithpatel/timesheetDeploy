@@ -245,7 +245,7 @@ export default {
       async onClickAddProject(projectDetails){
         this.addLoading = true ;
 
-         const url = `http://localhost:8001/project/employee/save/${this.employeeObj.employeeId}`
+         const url = `${this.$store.state.backendDomainUrl}/project/employee/save/${this.employeeObj.employeeId}`
 
          const options = {
             method:"PUT",
@@ -268,7 +268,7 @@ export default {
 
         this.removeLoading = true ;
 
-        const url = `http://localhost:8001/project/employee/remove/${this.employeeObj.employeeId}`
+        const url = `${this.$store.state.backendDomainUrl}/project/employee/remove/${this.employeeObj.employeeId}`
 
         const data = {
           projectId,
@@ -293,7 +293,7 @@ export default {
       async onClickUpdateProject(projectDetails){
         this.updateLoading = true ;
 
-        const url = `http://localhost:8001/project/employee/update/${this.employeeObj.employeeId}`
+        const url = `${this.$store.state.backendDomainUrl}/project/employee/update/${this.employeeObj.employeeId}`
 
          const options = {
             method:"PUT",
@@ -313,7 +313,7 @@ export default {
 
       async onClickSave(){
           
-          const url = `http://localhost:8001/projects/save/${this.employeeObj.employeeId}`
+          const url = `${this.$store.state.backendDomainUrl}/projects/save/${this.employeeObj.employeeId}`
           const options = {
             method:"PUT",
             ...this.getHeaders,
@@ -339,7 +339,7 @@ export default {
       async getProjectsList(){
         this.projectsLoading = true
 
-        const url = `http://localhost:8001/projects?projectName=${this.searchProjectName}`
+        const url = `${this.$store.state.backendDomainUrl}/projects?projectName=${this.searchProjectName}`
         const options = {
           method:"GET",
           ...this.getHeaders,
@@ -356,7 +356,7 @@ export default {
       async getEmployeeProjectsList(){
         this.employeeProjectsLoading = true
 
-        const url = `http://localhost:8001/projects/employee/${this.employeeObj.employeeId}`
+        const url = `${this.$store.state.backendDomainUrl}/projects/employee/${this.employeeObj.employeeId}`
 
         const options = {
           method:"GET",

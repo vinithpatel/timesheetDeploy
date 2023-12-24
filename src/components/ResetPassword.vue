@@ -137,7 +137,7 @@ export default {
 
             const {resetToken} = this.$route.params ;
 
-            const url = `http://localhost:8001/reset-link-verify/${resetToken}` ;
+            const url = `${this.$store.state.backendDomainUrl}/reset-link-verify/${resetToken}` ;
 
             const options = {
                 method:"GET",
@@ -162,7 +162,7 @@ export default {
             this.buttonLoading = true ;
             const {resetToken} = this.$route.params ;
 
-            const url = "http://localhost:8001/reset-password/" ;
+            const url = `${this.$store.state.backendDomainUrl}/reset-password/` ;
 
             const options = {
                 method:"PUT",

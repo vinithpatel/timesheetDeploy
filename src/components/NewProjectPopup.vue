@@ -213,7 +213,7 @@
             
             this.addLoading = true ;
 
-            const url = "http://localhost:8001/project/create/" ;
+            const url = `${this.$store.state.backendDomainUrl}/project/create/` ;
 
             const data = {
                 projectName:this.projectName,
@@ -259,7 +259,7 @@
         },
 
         async getCustomersList(){
-                const url = `http://localhost:8001/customers/`
+                const url = `${this.$store.state.backendDomainUrl}/customers/`
 
                 const options = {
                 method:"GET",

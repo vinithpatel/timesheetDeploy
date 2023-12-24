@@ -302,7 +302,7 @@
         },
 
         async getWeekData(employeeId){
-          const url = `http://localhost:8001/timesheet/employee/${employeeId}/weekly_export/${this.weekValue}`
+          const url = `${this.$store.state.backendDomainUrl}/timesheet/employee/${employeeId}/weekly_export/${this.weekValue}`
           
           const options = {
             method:"GET",
@@ -352,7 +352,7 @@
 
         async getMonthData(employeeId){
           
-            const url = `http://localhost:8001/timesheet/employee/${employeeId}/monthly_export/${this.monthValue}`
+            const url = `${this.$store.state.backendDomainUrl}/timesheet/employee/${employeeId}/monthly_export/${this.monthValue}`
             
             const options = {
               method:"GET",
@@ -372,7 +372,7 @@
 
 
         async getCustomDateData(employeeId){
-          const url = `http://localhost:8001/timesheet/employee/${employeeId}/custom_export/?startDate=${this.startDate}&&endDate=${this.endDate}`
+          const url = `${this.$store.state.backendDomainUrl}/timesheet/employee/${employeeId}/custom_export/?startDate=${this.startDate}&&endDate=${this.endDate}`
             
             const options = {
               method:"GET",
@@ -505,7 +505,7 @@
         async getEmployees(){
             this.loading = true ;
 
-            const url = `http://localhost:8001/employees?employeeId=${this.searchEmployeeId}&&employeeName=${this.searchEmployeeName}`
+            const url = `${this.$store.state.backendDomainUrl}/employees?employeeId=${this.searchEmployeeId}&&employeeName=${this.searchEmployeeName}`
             const options = {
               method:"GET",
               ...this.getHeaders,

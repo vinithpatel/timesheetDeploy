@@ -510,7 +510,7 @@
         },
 
         async getTimeSheetData(){
-                const url = `http://localhost:8001/timesheet/projects/${this.sheetObj.timeSheetId}` ;
+                const url = `${this.$store.state.backendDomainUrl}/timesheet/projects/${this.sheetObj.timeSheetId}` ;
                 const options = {
                     method:"GET",
                     ...this.getHeaders,
@@ -533,7 +533,7 @@
             async onClickSave(){
                 this.saveLodaing = true;
 
-                const url = `http://localhost:8001/timesheet/save/${this.sheetObj.timeSheetId}`
+                const url = `${this.$store.state.backendDomainUrl}/timesheet/save/${this.sheetObj.timeSheetId}`
 
                 const options = {
                     method:"PUT",

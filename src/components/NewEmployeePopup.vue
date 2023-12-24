@@ -231,7 +231,7 @@
             
             this.addLoading = true ;
 
-            const url = "http://localhost:8001/employee/create/" ;
+            const url = `${this.$store.state.backendDomainUrl}/employee/create/` ;
 
             const data = {
                 employeeName:this.employeeName,
@@ -277,7 +277,7 @@
         },
 
         async getEmployeesList(){
-                const url = `http://localhost:8001/employees/`
+                const url = `${this.$store.state.backendDomainUrl}/employees/`
 
                 const options = {
                 method:"GET",
@@ -294,7 +294,7 @@
         
 
         async getPositionsList(){
-            const url = `http://localhost:8001/positions`
+            const url = `${this.$store.state.backendDomainUrl}/positions`
 
             const options = {
                 method:"GET",
@@ -310,7 +310,7 @@
         },
 
         async getDepartementsList(){
-            const url = `http://localhost:8001/departments`
+            const url = `${this.$store.state.backendDomainUrl}/departments`
 
             const options = {
                 method:"GET",

@@ -227,7 +227,7 @@
                 body:JSON.stringify(loginData),
             }
 
-            const response = await fetch("http://localhost:8001/login", options)
+            const response = await fetch(`${this.$store.state.backendDomainUrl}/login`, options)
             const data = await response.json() ;
 
             if(response.ok){
@@ -264,7 +264,7 @@
 
         async verifyAndSendLink(){
             this.emailVerifyLoading = true ;
-            const url = `http://localhost:8001/forgot-password/` ;
+            const url = `${this.$store.state.backendDomainUrl}/forgot-password/` ;
 
             const options = {
                 method:"POST",

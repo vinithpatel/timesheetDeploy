@@ -344,7 +344,7 @@ import {mapGetters} from 'vuex'
         
         const {startDate, endDate} = this.getStartAndEndDate()
 
-        const url=`http://localhost:8001/timesheets?timesheet_id=${this.timeSheetId}&&employee_id=${this.employeeId}&&employee_name=${this.employeeName}&&log_hours=${this.logHours}&&start_date=${startDate}&&end_date=${endDate}&&status=${this.status}` ;
+        const url=`${this.$store.state.backendDomainUrl}/timesheets?timesheet_id=${this.timeSheetId}&&employee_id=${this.employeeId}&&employee_name=${this.employeeName}&&log_hours=${this.logHours}&&start_date=${startDate}&&end_date=${endDate}&&status=${this.status}` ;
 
         const options = {
           method:"GET",
@@ -368,7 +368,7 @@ import {mapGetters} from 'vuex'
         
         //const {startDate, endDate} = this.getStartAndEndDate()
 
-        const url=`http://localhost:8001/timesheet/monthly_report/1001` ;
+        const url=`${this.$store.state.backendDomainUrl}/timesheet/monthly_report/1001` ;
 
         const options = {
           method:"GET",

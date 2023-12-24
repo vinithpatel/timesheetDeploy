@@ -243,7 +243,7 @@
           
           const {startDate, endDate} = this.getStartAndEndDate()
 
-          const url=`http://localhost:8001/reporting_manager/employees/pending_timesheets/${this.employeeId}?employee_id=${this.searchEmployeeId}&&employee_name=${this.searchEmployeeName}&&start_date=${startDate}&&end_date=${endDate}&&status=${this.status}` ;
+          const url=`${this.$store.state.backendDomainUrl}/reporting_manager/employees/pending_timesheets/${this.employeeId}?employee_id=${this.searchEmployeeId}&&employee_name=${this.searchEmployeeName}&&start_date=${startDate}&&end_date=${endDate}&&status=${this.status}` ;
 
           const options = {
             method:"GET",

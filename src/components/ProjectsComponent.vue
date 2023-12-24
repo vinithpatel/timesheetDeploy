@@ -153,7 +153,7 @@
       async getProjectsList(){
         this.searchLoading = true
 
-        const url = `http://localhost:8001/projects?projectName=${this.searchProjectName}`
+        const url = `${this.$store.state.backendDomainUrl}/projects?projectName=${this.searchProjectName}`
         const options = {
           method:"GET",
           ...this.getHeaders,
@@ -172,7 +172,7 @@
           console.log("project delete")
           console.log(projectId)
 
-          const url = `http://localhost:8001/project/delete/${projectId}`
+          const url = `${this.$store.state.backendDomainUrl}/project/delete/${projectId}`
           const options = {
             method:"DELETE",
             ...this.getHeaders,

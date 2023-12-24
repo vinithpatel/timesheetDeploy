@@ -103,7 +103,7 @@
 
         methods:{
             async getPositionsList(){
-                const url = `http://localhost:8001/positions`
+                const url = `${this.$store.state.backendDomainUrl}/positions`
 
                 const options = {
                     method:"GET",

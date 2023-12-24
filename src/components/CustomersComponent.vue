@@ -138,7 +138,7 @@
       async getCustomersList(){
         this.searchLoading = true
 
-        const url = `http://localhost:8001/customers?name=${this.searchCustomer}`
+        const url = `${this.$store.state.backendDomainUrl}/customers?name=${this.searchCustomer}`
 
         const options = {
           method:"GET",
@@ -156,7 +156,7 @@
 
       async onRemove(id){
 
-          const url = `http://localhost:8001/customer/delete/${id}`
+          const url = `${this.$store.state.backendDomainUrl}/customer/delete/${id}`
           const options = {
             method:"DELETE",
             ...this.getHeaders,
