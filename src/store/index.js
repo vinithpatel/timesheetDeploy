@@ -7,7 +7,7 @@ import router from "../router.js" ;
 
 export default createStore({
     state:{
-        backendDomainUrl:"https://employee-management-app-ytz4.onrender.com", //http://localhost:8001",
+        backendDomainUrl:"https://employee-management-app-ytz4.onrender.com",
         jwtToken:'',
         redirectPath:'/',
         employeeDetails:{},
@@ -183,7 +183,7 @@ export default createStore({
         },
 
         async getEmployeeProfileDetails(store){
-            const url = "http://localhost:8001/employee/profile"
+            const url = `${store.state.backendDomainUrl}/employee/profile`
 
             const options = {
                 method:"GET",
@@ -233,7 +233,7 @@ export default createStore({
         },
 
         async getProjectData(store){
-            const url = `http://localhost:8001/projects/employee/${store.state.employeeId}`;
+            const url = `${store.state.backendDomainUrl}/projects/employee/${store.state.employeeId}`;
 
             const options = {
                 method:"GET",
@@ -256,7 +256,7 @@ export default createStore({
 
 
         async approveTimeSheet(store, timeSheetId){
-            const url = `http://localhost:8001/timesheet/approve/${timeSheetId}` 
+            const url = `${store.state.backendDomainUrl}/timesheet/approve/${timeSheetId}` 
             const options = {
                 method:"PUT",
                 headers:{
@@ -274,7 +274,7 @@ export default createStore({
         },
 
         async submitTimeSheet(store, timeSheetId){
-            const url = `http://localhost:8001/timesheet/submit/${timeSheetId}`
+            const url = `${store.state.backendDomainUrl}/timesheet/submit/${timeSheetId}`
 
             const options = {
                 method:"PUT",
@@ -295,7 +295,7 @@ export default createStore({
         },
 
         async denyTimeSheet(store, timeSheetId){
-            const url = `http://localhost:8001/timesheet/deny/${timeSheetId}` 
+            const url = `${store.state.backendDomainUrl}/timesheet/deny/${timeSheetId}` 
             const options = {
                 method:"PUT",
                 headers:{
@@ -313,7 +313,7 @@ export default createStore({
         },
 
         async openTimeSheet(store, timeSheetId){
-            const url = `http://localhost:8001/timesheet/open/${timeSheetId}` 
+            const url = `${store.state.backendDomainUrl}/timesheet/open/${timeSheetId}` 
             const options = {
                 method:"PUT",
                 headers:{
@@ -402,7 +402,7 @@ export default createStore({
 
         getEmployeeDetails(state){
             return async (employeeId) => {
-                const url = `http://localhost:8001/employee/${employeeId}`
+                const url = `${state.backendDomainUrl}/employee/${employeeId}`
                 const options = {
                     method:"GET",
                     headers:{
