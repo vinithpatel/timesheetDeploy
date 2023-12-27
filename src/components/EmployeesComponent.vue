@@ -6,7 +6,7 @@
         color="#6a70eb"
         height="50"
         >
-        <v-toolbar-title>Employee TimeSheet</v-toolbar-title>
+        <v-toolbar-title>Employees List</v-toolbar-title>
         </v-toolbar>
         <v-card-title>
           <v-row>
