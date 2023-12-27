@@ -4,8 +4,8 @@ import store from "./store/index.js"
 
 import LoginVue from "./components/LoginVue.vue"
 import HomeVue from "./components/HomeVue.vue"
-//import EmployeeTimesheet from "./components/EmployeeTimesheet.vue"
-import SearchTimesheet from "./components/SearchTimesheet.vue"
+import EmployeeTimesheet from "./components/EmployeeTimeSheet.vue"
+//import SearchTimesheet from "./components/SearchTimesheet.vue"
 import ExportComponent from "./components/ExportComponent.vue" ;
 import WeekSheetComponent from "./components/WeekSheetComponent.vue"
 import EmployeesComponent from "./components/EmployeesComponent.vue"
@@ -43,8 +43,8 @@ const router = createRouter({
         },
 
         {
-            name:"Search TimeSheet",
-            path:'/search_timesheet', component:SearchTimesheet
+            name:"Employee TimeSheets",
+            path:'/employee_timesheets', component:EmployeeTimesheet
         },
 
         {

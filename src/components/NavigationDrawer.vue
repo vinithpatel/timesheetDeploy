@@ -39,8 +39,8 @@
           </div>
           <div v-if="isAdmin">
               <v-list-subheader class="text-subtitle-1">Admin</v-list-subheader>      
-              <router-link to="/" class="router-link">
-                <v-list-item :active="isLinkActive('')" prepend-icon="mdi-account-search" title="Employee Timesheet" value="employeeTimesheet"
+              <router-link to="/employee_timesheets" class="router-link">
+                <v-list-item :active="isLinkActive('employee_timesheets')" prepend-icon="mdi-account-search" title="Employee Timesheet" value="employeeTimesheet"
                 color="#6a70eb"
                 ></v-list-item>
               </router-link>
