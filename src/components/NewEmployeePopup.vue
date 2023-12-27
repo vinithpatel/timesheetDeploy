@@ -237,7 +237,7 @@
                 employeeName:this.employeeName,
                 contactNumber:this.contactNumber,
                 personalMail:this.personalMail,
-                officailMail:this.officialMail,
+                officialMail:this.officialMail,
                 doj:this.doj,
                 positionId:this.positionId,
                 positionsList:[],

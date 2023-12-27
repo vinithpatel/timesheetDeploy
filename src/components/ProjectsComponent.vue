@@ -97,7 +97,7 @@
                     </div>
                   </td>
                   <td>
-                    <DeleteButton v-slot="{onOpenDialog}" @onRemove="onRemove" v-bind:id="item.projectId">
+                    <DeleteButton v-slot="{onOpenDialog}" @onRemove="onRemove" v-bind:id="item.projectId" text="project">
                       <v-btn icon="mdi-delete" variant="text" color="#a11a1a" @click="onOpenDialog">
                       
                       </v-btn>

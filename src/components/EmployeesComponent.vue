@@ -53,19 +53,17 @@
             class="mb-2"
             :rounded="true"
           >
-    
-            
               <v-row justify="end">
                 <v-col cols="2">
                   <router-link :to="`project_assignment/${item.employeeId}`"><v-btn color="primary">Assign Projects</v-btn></router-link>
                 </v-col>
                 <v-col cols="2">
-                  <v-btn color="#ab1e02"  @click="deleteEmployee(item.employeeId)">DELETE EMPLOYEE</v-btn>
+                    <DeleteButton v-slot="{onOpenDialog}" @onRemove="deleteEmployee" v-bind:id="item.employeeId" text="employee">
+                      <v-btn color="#ab1e02" @click="onOpenDialog">DELETE EMPLOYEE</v-btn>
+                    </DeleteButton> 
                 </v-col>
               </v-row>
-            
-           
-        </v-list-item>
+         </v-list-item>
           </v-list>
           <div v-if="employeesList.length === 0" class="d-flex flex-row justify-center">
               No Data Found
@@ -87,6 +85,7 @@
 <script>
 //import ProjectAssignment from './ProjectAssignment.vue'
 import NewEmployeePopup from './NewEmployeePopup.vue'
+import DeleteButton from "./DeleteButton.vue"
 import { mapGetters } from 'vuex'
 
 export default {
@@ -102,7 +101,7 @@ export default {
   },
 
   components:{
-      NewEmployeePopup,//ProjectAssignment
+      NewEmployeePopup,DeleteButton//ProjectAssignment
   },
 
   computed:{

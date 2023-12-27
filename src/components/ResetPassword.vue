@@ -190,6 +190,7 @@ export default {
     },
 
     mounted(){
+        this.$store.commit('onLogout')             //directly calling the mutation of store/index.js to logout when reset page loaded
         this.checkResetPage() ;
     }
 }

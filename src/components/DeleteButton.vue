@@ -6,7 +6,7 @@
         <v-dialog v-model="dialog" width="300px" persistent>
             <v-card>
                 <v-card-text>
-                    Are you sure want to remove this project
+                    Are you sure want to remove {{text}}
                 </v-card-text>
 
                 <v-card-actions>
@@ -34,7 +34,7 @@
         },
 
         props:[
-            'id'
+            'id','text'
         ],
 
         methods:{

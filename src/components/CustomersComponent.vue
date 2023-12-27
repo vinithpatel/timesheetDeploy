@@ -82,7 +82,7 @@
                   <td><CommentPopup :comment="item.address" /></td>
                   
                   <td>
-                    <DeleteButton v-slot="{onOpenDialog}" @onRemove="onRemove" v-bind:id="item.customerId">
+                    <DeleteButton v-slot="{onOpenDialog}" @onRemove="onRemove" v-bind:id="item.customerId" text="customer">
                       <v-btn icon="mdi-delete" variant="text" color="#a11a1a" @click="onOpenDialog">
                       
                       </v-btn>
