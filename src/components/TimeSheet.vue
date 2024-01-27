@@ -181,9 +181,21 @@
 
           // format Value ex:2023-W36
 
-          const weekViewFormat = `${currentDate.getFullYear()}-W${getWeek(currentDate, {weekStartsOn:1, firstWeekContainsDate:2})}` ;
+          let weekViewFormat = `${currentDate.getFullYear()}-W${getWeek(currentDate, {weekStartsOn:1, firstWeekContainsDate:2})}` ;
           
           //setting up the calendarValue data property to show current week in calendar
+
+           /*
+                week should be more than one digit 2024-W2 --> 2024-W02
+                Writing if condition to make two digit week number
+            */
+
+          let [year, weekNumber] = weekViewFormat.split('-W') ;   
+          
+          if(weekNumber.length === 1){
+            weekViewFormat = year+'-W0'+weekNumber
+          }
+
           this.calendarValue = weekViewFormat ;
 
         }

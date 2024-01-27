@@ -12,4 +12,14 @@ module.exports = defineConfig({
 			// https://github.com/vuetifyjs/vuetify-loader/tree/next/packages/vuetify-loader
 		}
   },
+
+  configureWebpack: { // Move the resolve option within configureWebpack
+    resolve: {
+      fallback: {
+        stream: require.resolve("stream-browserify"),
+        path: require.resolve("path-browserify"),
+        crypto: require.resolve("crypto-browserify")
+      }
+    }
+  }
 })

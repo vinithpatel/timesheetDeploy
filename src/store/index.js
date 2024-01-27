@@ -1,13 +1,14 @@
 import {createStore} from "vuex" 
-import {startOfWeek, addDays, format, addWeeks} from "date-fns" ;
+import {/* startOfWeek, */ addDays, format, addWeeks, isMonday, isTuesday, isThursday, isWednesday, previousMonday, nextMonday} from "date-fns" ;
 import emailjs from 'emailjs-com' ;
 
 import router from "../router.js" ;
 
 
+
 export default createStore({
     state:{
-        backendDomainUrl:"https://employee-management-app-ytz4.onrender.com",
+        backendDomainUrl:"http://localhost:8001", //"https://employee-management-app-ytz4.onrender.com",
         jwtToken:'',
         redirectPath:'/',
         employeeDetails:{},
@@ -86,11 +87,27 @@ export default createStore({
             
             //calculat the first day of the specified week in the year
             const januaryFirst = new Date(year, 0, 1) ;
-            const weekStart = startOfWeek(januaryFirst, {weekStartsOn:1}) ;
+
+            //const weekStart = startOfWeek(januaryFirst, {weekStartsOn:1}) ;
+
+            let weekStart;
+            if (isMonday(januaryFirst)) {
+                weekStart = januaryFirst;
+            } else if (
+                isTuesday(januaryFirst) ||
+                isWednesday(januaryFirst) ||
+                isThursday(januaryFirst)
+            ) {
+                weekStart = previousMonday(januaryFirst);
+            } else {
+                weekStart = nextMonday(januaryFirst);
+            }
+
 
 
             //calculate the first day of the desired week by adding the number of weeks
-            const firstDayOfTheWeek = addWeeks(weekStart, weekNumber)
+            const firstDayOfTheWeek = addWeeks(weekStart, weekNumber-1)
+            console.log("first day of current week", firstDayOfTheWeek)
             const dateFormat = format(firstDayOfTheWeek, 'E,MMM dd')
 
                 const daysOfWeek = [dateFormat,] ; // intializing the array with first day of week with format
@@ -107,6 +124,10 @@ export default createStore({
                 state.daysOfWeek = daysOfWeek ;
                 state.startDate = format(firstDayOfTheWeek, "yyyy-MM-dd") ;
                 state.endDate = format(date, 'yyyy-MM-dd') ;
+
+
+                console.log("start date",state.startDate);
+                console.log("end date", state.endDate);
 
         },
 
@@ -131,7 +152,6 @@ export default createStore({
         },
 
         updateSelectedWeek(state, value){
-            
             state.selectedWeek = value ;
         },
 
@@ -373,7 +393,7 @@ export default createStore({
                 }, '75B7CIXrKgR0C1weF')
             }catch(error){
                 console.log(error) ;
-            }
+            }              
         },
 
         
