@@ -175,7 +175,8 @@
 
   <script>
     import DateRange from "./DateRange.vue" ;
-    import {format, startOfWeek, addWeeks, addDays} from "date-fns" ;
+    import {format, /*startOfWeek,*/ addWeeks, addDays, isMonday, isTuesday, isThursday, isWednesday, previousMonday, nextMonday} from "date-fns" ;
+
     import jsPDF from "jspdf" ;
     import "jspdf-autotable";
     import {mapGetters} from "vuex" ;
@@ -320,15 +321,38 @@
 
         getPeriod(){
           if(this.timePeriod === "week"){
-            const [year, weekNumber] = this.weekValue ;
+            const [year, weekNumber] = this.weekValue.split('-W') ;
 
             //calculat the first day of the specified week in the year
+            
             const januaryFirst = new Date(year, 0, 1) ;
-            const weekStart = startOfWeek(januaryFirst, {weekStartsOn:1}) ;
+
+            //const weekStart = startOfWeek(januaryFirst, {weekStartsOn:1}) ;
+
+            let weekStart;
+            if (isMonday(januaryFirst)) {
+                weekStart = januaryFirst;
+            } else if (
+                isTuesday(januaryFirst) ||
+                isWednesday(januaryFirst) ||
+                isThursday(januaryFirst)
+            ) {
+                weekStart = previousMonday(januaryFirst);
+            } else {
+                weekStart = nextMonday(januaryFirst);
+            }
+
+            //calculate the first day of the desired week by adding the number of weeks
+            const firstDayOfTheWeek = addWeeks(weekStart, weekNumber-1)
+            
+
+            //calculat the first day of the specified week in the year
+            //const januaryFirst = new Date(year, 0, 1) ;
+            //const weekStart = startOfWeek(januaryFirst, {weekStartsOn:1}) ;
 
 
             //calculate the first day of the desired week by adding the number of weeks
-            const firstDayOfTheWeek = addWeeks(weekStart, weekNumber)
+            //const firstDayOfTheWeek = addWeeks(weekStart, weekNumber)
             const lastDayOfTheWeek = addDays(firstDayOfTheWeek,6)
 
             return `${format(firstDayOfTheWeek, 'MMM dd')} - ${format(lastDayOfTheWeek, 'MMM dd')} (${this.weekValue})`
