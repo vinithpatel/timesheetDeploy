@@ -162,7 +162,7 @@ import { mapGetters } from 'vuex';
                 
                 this.addLoading = true ;
 
-                const url = "${this.$store.state.backendDomainUrl}/customer/create/" ;
+                const url = `${this.$store.state.backendDomainUrl}/customer/create/` ;
 
                 const data = {
                     name:this.name,

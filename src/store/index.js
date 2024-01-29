@@ -8,7 +8,7 @@ import router from "../router.js" ;
 
 export default createStore({
     state:{
-        backendDomainUrl:"https://employee-management-app-ytz4.onrender.com", //"http://localhost:8001", //
+        backendDomainUrl:"http://localhost:8001", //"https://employee-management-app-ytz4.onrender.com", //
         jwtToken:'',
         redirectPath:'/',
         employeeDetails:{},
